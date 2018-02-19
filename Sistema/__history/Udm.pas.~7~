@@ -1,0 +1,50 @@
+unit Udm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+
+type
+  Tdm = class(TDataModule)
+    BD: TADOConnection;
+    QLogin: TADOQuery;
+    QLoginnome: TStringField;
+    QLoginusrnome: TStringField;
+    QUsuarios: TADOQuery;
+    QUsuariosid: TAutoIncField;
+    QUsuariosnome: TStringField;
+    QUsuariosusrnome: TStringField;
+    QUsuariosemail: TStringField;
+    QUsuariossenha: TStringField;
+    dsUsuarios: TDataSource;
+    QPacientes: TADOQuery;
+    AutoIncField1: TAutoIncField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    dsPacientes: TDataSource;
+    QMedicos: TADOQuery;
+    AutoIncField2: TAutoIncField;
+    StringField5: TStringField;
+    StringField6: TStringField;
+    StringField7: TStringField;
+    StringField8: TStringField;
+    dsMedicos: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm: Tdm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

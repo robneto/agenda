@@ -1,0 +1,50 @@
+object FMenu: TFMenu
+  Left = 0
+  Top = 0
+  Caption = '...:::||| Menu Principal |||:::...'
+  ClientHeight = 380
+  ClientWidth = 648
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = Menu
+  OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Menu: TMainMenu
+    Left = 8
+    Top = 8
+    object Cadastros1: TMenuItem
+      Caption = '&Cadastros'
+      object Pacientes1: TMenuItem
+        Caption = '&Pacientes'
+      end
+      object Mdicos1: TMenuItem
+        Caption = '&M'#233'dicos'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Usurios1: TMenuItem
+        Caption = '&Usu'#225'rios'
+      end
+    end
+    object Agenda1: TMenuItem
+      Caption = '&Agenda'
+      object Agendamentos1: TMenuItem
+        Caption = '&Agendamentos'
+      end
+    end
+    object Sair1: TMenuItem
+      Caption = '&Sair'
+      OnClick = Sair1Click
+    end
+  end
+end

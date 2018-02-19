@@ -1,0 +1,144 @@
+unit UListaMedicos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Buttons, DB;
+
+type
+  TFMedicos = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    cbFiltro: TComboBox;
+    Label1: TLabel;
+    edtPesquisa: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    btnInc: TButton;
+    btnAlt: TButton;
+    btnExcl: TButton;
+    BitBtn1: TBitBtn;
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure CarregaCampos;
+    procedure edtPesquisaKeyPress(Sender: TObject; var Key: Char);
+    procedure btnExclClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure btnAltClick(Sender: TObject);
+    procedure btnIncClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FMedicos: TFMedicos;
+
+implementation
+
+{$R *.dfm}
+
+uses Udm, UedMedico;
+
+procedure TFMedicos.BitBtn1Click(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TFMedicos.FormCreate(Sender: TObject);
+begin
+   dm.QMedicos.Open;
+   CarregaCampos;
+end;
+
+procedure TFMedicos.FormDestroy(Sender: TObject);
+begin
+   FMedicos.Free;
+   FMedicos := nil;
+end;
+
+procedure TFMedicos.btnIncClick(Sender: TObject);
+begin
+   if (dm.QMedicos.State = dsBrowse) then
+      dm.QMedicos.Insert;
+
+   Application.CreateForm(TFedMedico, FedMedico);
+
+   if (FedMedico.ShowModal = mrAll) then
+   begin
+      dm.QMedicos.Post;
+      FreeAndNil(FedMedico);
+   end
+   else
+      dm.QMedicos.Cancel;
+end;
+
+procedure TFMedicos.btnAltClick(Sender: TObject);
+begin
+   if (dm.QMedicos.State = dsBrowse) then
+      dm.QMedicos.Edit;
+
+   Application.CreateForm(TFedMedico, FedMedico);
+
+   if (FedMedico.ShowModal = mrAll) then
+   begin
+      dm.QMedicos.Post;
+      FreeAndNil(FedMedico);
+   end
+   else
+      dm.QMedicos.Cancel;
+end;
+
+procedure TFMedicos.btnExclClick(Sender: TObject);
+begin
+   if (dm.QMedicos.RecordCount > 0) then
+      if (MessageDlg('Deseja realmente excluir médico selecionado ?',mtConfirmation,[mbYes, mbNo],0) = mrYes) then
+      begin
+         dm.QMedicos.Delete;
+      end
+   else
+      Showmessage('Nenhum registro encontrado.');
+end;
+
+procedure TFMedicos.CarregaCampos;
+var i : integer;
+begin
+  for i := 0 to dm.QMedicos.FieldCount - 2 do
+     cbFiltro.Items.Add(dm.QMedicos.Fields[i].DisplayLabel);
+end;
+
+procedure TFMedicos.edtPesquisaKeyPress(Sender: TObject; var Key: Char);
+Var campo:string;
+begin
+   campo := cbFiltro.Text;
+
+   if (Key = #13) then
+   begin
+      if (edtPesquisa.Text <> '') then
+      begin
+         if (dm.QMedicos.FieldByName(campo).DataType = ftAutoInc) then
+         begin
+            dm.QMedicos.SQL.Strings[02] := ' AND ' + cbFiltro.Text + ' = ' + edtPesquisa.Text;
+            dm.QMedicos.Open;
+         end else
+         if (dm.QMedicos.FieldByName(campo).DataType = ftString) then
+         begin
+            dm.QMedicos.SQL.Strings[02] := ' AND ' + cbFiltro.Text + ' like ' + '''' + '%' + edtPesquisa.Text + '%' +'''';
+            dm.QMedicos.Open;
+         end;
+      end else
+      begin
+         dm.QMedicos.SQL.Strings[02] := ' ';
+         dm.QMedicos.Open;
+      end;
+   end;
+end;
+
+end.

@@ -1,0 +1,59 @@
+unit Udm;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+
+type
+  Tdm = class(TDataModule)
+    BD: TADOConnection;
+    QLogin: TADOQuery;
+    QLoginnome: TStringField;
+    QLoginusrnome: TStringField;
+    QUsuarios: TADOQuery;
+    QUsuariosid: TAutoIncField;
+    QUsuariosnome: TStringField;
+    QUsuariosusrnome: TStringField;
+    QUsuariosemail: TStringField;
+    QUsuariossenha: TStringField;
+    dsUsuarios: TDataSource;
+    QPacientes: TADOQuery;
+    dsPacientes: TDataSource;
+    QMedicos: TADOQuery;
+    dsMedicos: TDataSource;
+    QPacientesid: TAutoIncField;
+    QPacientesnome: TStringField;
+    QPacientesfone: TStringField;
+    QPacientesCelular: TStringField;
+    QPacientesObs: TStringField;
+    QPacientesidusr: TIntegerField;
+    QMedicosid: TAutoIncField;
+    QMedicosnome: TStringField;
+    QMedicoscrm: TIntegerField;
+    QMedicosuf_crm: TStringField;
+    QMedicosCelular: TStringField;
+    QMedicosidusr: TIntegerField;
+    QLoginid: TAutoIncField;
+    procedure QMedicosBeforePost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm: Tdm;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure Tdm.QMedicosBeforePost(DataSet: TDataSet);
+begin
+   QMedicos.FieldByName('idusr').AsInteger := QLogin.FieldByName('id').AsInteger;
+end;
+
+end.

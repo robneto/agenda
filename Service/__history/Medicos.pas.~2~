@@ -1,0 +1,17 @@
+unit Medicos;
+
+interface
+
+type
+  TMedicos = class
+    public
+      property id: integer;
+      property nome: string;
+      property crm: string;
+      property uf: string;
+      property celular: string;
+  end;
+
+implementation
+
+end.

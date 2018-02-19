@@ -1,0 +1,256 @@
+object FedUsuario: TFedUsuario
+  Left = 0
+  Top = 0
+  BorderStyle = bsSingle
+  Caption = 'Usu'#225'rio'
+  ClientHeight = 247
+  ClientWidth = 432
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 432
+    Height = 41
+    Align = alTop
+    Caption = 'Usu'#225'rio'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clHotLight
+    Font.Height = -29
+    Font.Name = 'Cambria'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    ExplicitLeft = 184
+    ExplicitTop = 80
+    ExplicitWidth = 185
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 198
+    Width = 432
+    Height = 49
+    Align = alBottom
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    ExplicitTop = 232
+    ExplicitWidth = 457
+    object BitBtn1: TBitBtn
+      Left = 343
+      Top = 11
+      Width = 75
+      Height = 25
+      Caption = '&Sair'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+        F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+        000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+        338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+        45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+        3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+        F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+        000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+        338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+        4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+        8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+        333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+        0000}
+      ModalResult = 8
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 18
+      Top = 11
+      Width = 75
+      Height = 25
+      Caption = '&Salvar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Kind = bkAll
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 41
+    Width = 432
+    Height = 157
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    ExplicitLeft = 152
+    ExplicitTop = 88
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object Label1: TLabel
+      Left = 18
+      Top = 14
+      Width = 10
+      Height = 13
+      Caption = 'Id'
+      FocusControl = DBEdit1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 65
+      Top = 14
+      Width = 27
+      Height = 13
+      Caption = 'Nome'
+      FocusControl = DBEdit2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 18
+      Top = 58
+      Width = 36
+      Height = 13
+      Caption = 'Usu'#225'rio'
+      FocusControl = DBEdit3
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 158
+      Top = 58
+      Width = 28
+      Height = 13
+      Caption = 'e-Mail'
+      FocusControl = DBEdit4
+    end
+    object Label5: TLabel
+      Left = 18
+      Top = 102
+      Width = 30
+      Height = 13
+      Caption = 'Senha'
+      FocusControl = DBEdit5
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DBEdit1: TDBEdit
+      Left = 18
+      Top = 30
+      Width = 41
+      Height = 21
+      DataField = 'id'
+      DataSource = dm.dsUsuarios
+      Enabled = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 65
+      Top = 30
+      Width = 344
+      Height = 21
+      DataField = 'nome'
+      DataSource = dm.dsUsuarios
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 18
+      Top = 74
+      Width = 134
+      Height = 21
+      DataField = 'usrnome'
+      DataSource = dm.dsUsuarios
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 158
+      Top = 74
+      Width = 251
+      Height = 21
+      DataField = 'email'
+      DataSource = dm.dsUsuarios
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 18
+      Top = 118
+      Width = 134
+      Height = 21
+      DataField = 'senha'
+      DataSource = dm.dsUsuarios
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 4
+    end
+  end
+end
